@@ -1,17 +1,20 @@
 import { LOGIN_COMPLETE_URL } from "../constants/url.mjs";
+import { userData } from "../reuseables/userData.mjs";
 import { loginUser } from "../users/index.mjs";
 
+
+/**
+ * Listens to the Login form - passsing login-information to the loginUser() function
+ * Creates user with mail and password with userData(mail, pass, optional: name)
+ */
 export function loginListener() {
     const form = document.querySelector("#log-in");
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const loginEmail = document.querySelector(".loginEmail");
-        const loginPass = document.querySelector(".loginPass");
+        const mail = document.querySelector(".loginEmail").value;
+        const pass = document.querySelector(".loginPass").value;
     
-        const userLogin = {
-            email: loginEmail.value,
-            password: loginPass.value,
-          };
-        loginUser(LOGIN_COMPLETE_URL, userLogin);
+        userData(mail, pass)
+        loginUser(LOGIN_COMPLETE_URL, user);
     });
 };
