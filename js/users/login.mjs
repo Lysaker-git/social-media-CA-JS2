@@ -10,8 +10,8 @@ export async function loginUser(url, user) {
         const accesstoken = json.accessToken;
         const name = json.name;
 
-        localStorage.getItem('accesstoken', accesstoken);
-        localStorage.getItem('name', name)
+        localStorage.setItem('accesstoken', accesstoken);
+        localStorage.setItem('name', name)
 
         if (accesstoken) {
             location.assign('/profile.html');
@@ -25,6 +25,4 @@ export async function loginUser(url, user) {
     } catch (e) {
         console.log(e)
     }
-
-
 }
