@@ -8,14 +8,14 @@ export async function getPosts(url) {
         const response = await fetch(url, headerWithAuth('GET'));
         
         const json = await response.json();
+        console.log(json)
         const postContainer = document.querySelector('.postContainer');
         json.forEach((content) => {
-
-        postTemplate(postContainer, content)
+            postTemplate(postContainer, content)
         
-        if (loggedIn === content.author.name) {
-            editTemplate(postContainer);
-        }
+            if (loggedIn === content.author.name) {
+                editTemplate(postContainer, content);
+            }
         });
     } catch (e) {
         console.log(e)

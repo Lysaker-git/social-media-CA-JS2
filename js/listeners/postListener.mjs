@@ -1,6 +1,7 @@
 import { POSTS_COMPLETE_URL, POSTS_CREATE_URL } from "../constants/url.mjs";
 import { getPosts } from "../posts/index.mjs";
 import { createPosts } from "../posts/index.mjs";
+import { postContent } from "../reuseables/postData.mjs";
 
 
 export function postListener() {
@@ -14,11 +15,7 @@ export function createPostListener() {
         const postTitle = document.querySelector('#formTitle').value;
         const postBody = document.querySelector('#formBody').value;
 
-        const post = {
-            title: postTitle,
-            body: postBody,
-        };
-
+        postContent(postTitle,postBody);
         createPosts(POSTS_CREATE_URL, post);
     })
 }
