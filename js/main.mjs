@@ -2,6 +2,7 @@ export * from "./users/index.mjs";
 export * from "./profile/index.mjs";
 export * from "./templates/index.mjs";
 export * from "./api/index.mjs";
+export * from "./users/index.mjs";
 
 import * as listeners from "./listeners/index.mjs";
 

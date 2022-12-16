@@ -8,11 +8,10 @@ export function editTemplate (container) {
         editVar = 'Profile';
     };
     
-    container.innerHTML += `
+    return container.innerHTML += `
     <div>
         <p>Edit ${editVar}</p>
         <div class="editContainer"></div>
     </div>
     `
-    return container;
 }
