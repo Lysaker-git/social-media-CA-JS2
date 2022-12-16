@@ -1,5 +1,11 @@
 import { whatPage } from "../main.mjs"
 
+/**
+ * Function to add a modal to the posts that are users. Required to edit the post. 
+ * @param {object} container Container where the HTML are to be inserted with +=
+ * @param {object} content Object containing contents of the post created. Uses: ID, Title and Body of content. 
+ * @returns container with more HTML inside for editing Post 
+ */
 export function editTemplate (container, content) {
     let editVar = "";
     if (whatPage.includes('posts')) {
@@ -9,12 +15,10 @@ export function editTemplate (container, content) {
     };
     
     return container.innerHTML += `
-    <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal${content.id}">
         Edit ${editVar}
     </button>
     
-    <!-- Modal -->
     <div class="modal fade" id="modal${content.id}" tabindex="-1" aria-labelledby="modal${content.id}Label" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -32,7 +36,7 @@ export function editTemplate (container, content) {
                 </div>
                 <div class="">
                     <button type="button" class="btn btn-secondary mb-3" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary mb-3">Submit</button>
+                    <button type="submit" id="postData${content.id}" class="btn btn-primary mb-3">Submit</button>
                 </div>
             </form>
             </div>

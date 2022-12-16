@@ -1,3 +1,10 @@
+/**
+ * post template function taking container and content to create a basic post element. 
+ * @param {object} container Container object like a <div></div>
+ * @param {object} content - object with post Content. Uses ID, Title, Body and author.name
+ * @returns container with HTML for post.
+ */
+
 export function postTemplate(container, content) {
     return container.innerHTML += 
     `

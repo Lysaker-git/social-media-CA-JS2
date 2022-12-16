@@ -1,3 +1,10 @@
+/**
+ * Function that creates the profile HTML. 
+ * @param {object} container Container like a <div></div>
+ * @param {object} values Content object that passes Banner, Name, Avatar and email.
+ * @returns container with HTML for profile. 
+ */
+
 export function profileTemplate(container, values) {
     return container.innerHTML = 
     `
