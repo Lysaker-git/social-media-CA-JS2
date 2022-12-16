@@ -1,18 +1,24 @@
 import { LOGIN_COMPLETE_URL } from "../constants/url.mjs";
 import { headerWithBodyNoAuth } from "../api/index.mjs";
 import { loginUser } from "./login.mjs";
+import { userData } from "../reuseables/userData.mjs";
 
-export async function registerUser(url, user) {
+/**
+ * function to register user and then log them into application. 
+ * @param {string} url URL to register user
+ * @param {object} user user object to register user - and if user is registered logs the user in.
+ * @returns json object
+ */
+export async function registerUser(url, userData) {
   try {
     const response = await fetch(url, headerWithBodyNoAuth('POST', user));
     const json = await response.json();
     const id = json.id; 
     if(id) {
-        const userLogin = {
-            email: user.email,
-            password: user.password,
-        };
-        loginUser(LOGIN_COMPLETE_URL, userLogin);
+        const mail = userData.email;
+        const password = userData.password;
+        userData(mail, password);
+        loginUser(LOGIN_COMPLETE_URL, user);
     } else {
         const { errors } = json;
         let message = ""
