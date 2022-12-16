@@ -1,5 +1,5 @@
 import { LOGIN_COMPLETE_URL } from "../constants/url.mjs";
-import { headerWithBodyNoAuth } from "../main.mjs";
+import { headerWithBodyNoAuth } from "../api/index.mjs";
 import { loginUser } from "./login.mjs";
 
 export async function registerUser(url, user) {

@@ -1,9 +1,9 @@
-import { editTemplate, headerWithAuth } from "../main.mjs";
+import { headerWithAuth } from "../api/index.mjs";
 import { postTemplate } from "../templates/postTemplate.mjs";
+import { editTemplate } from "../templates/editTemplate.mjs";
 
 export async function getPosts(url) {
     try {
-        console.log(url)
         const loggedIn = localStorage.getItem('name')
         const response = await fetch(url, headerWithAuth('GET'));
         
@@ -16,7 +16,6 @@ export async function getPosts(url) {
         if (loggedIn === content.author.name) {
             editTemplate(postContainer);
         }
-        
         });
     } catch (e) {
         console.log(e)
