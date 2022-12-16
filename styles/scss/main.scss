@@ -1,0 +1,12 @@
+// BS import 
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+// Font
+@font-face {
+    font-family: 'Nabla';
+    src: url(../../assets/fonts/Nabla.ttf);
+}
+.header-title {
+    font-family: 'Nabla', cursive;
+    
+}

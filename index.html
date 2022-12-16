@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocker | Log-in</title>
+    <link rel="stylesheet" href="styles/css/main.css">
+    <script src="js/main.mjs" type="module" defer></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+</head>
+<body class="bg-dark">
+    <div class="container vh-100 my-auto text-center">
+        <header class="row py-5">
+            <h1 class="header-title text-primary">
+                Blockster
+            </h1>
+            <p>Your block..</p>
+        </header>
+        <main 
+            class=
+                "
+                row
+                px-2
+                py-5
+                bg-primary
+                bg-gradient
+                rounded
+                bg-opacity-25
+                "
+            >
+            <form id="log-in" method="post">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control loginEmail" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="password" class="form-control loginPass" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                  </div>
+                <button class="my-5 w-100 p-2 btn btn-primary fw-bold" type="submit">
+                    Log-in
+                </button>
+            </form>
+            <a class="link-info text-end" href="sing-up.html">
+                or.. <span>sign up</span>
+            </a>
+        </main>
+    </div>
+</body>
+</html>
