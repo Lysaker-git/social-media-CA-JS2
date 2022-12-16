@@ -1,3 +1,8 @@
+/**
+ * Returns the data that is sent to API with Authentication
+ * @param {string} method Method to send i.e 'POST','GET','DELETE'...
+ * @returns getData (Header-Data) that contains Authentication with lokal AccessToken
+ */
 export function headerWithAuth(method) {
     const token = localStorage.getItem('accessToken');
     const getData = {
@@ -9,6 +14,11 @@ export function headerWithAuth(method) {
     };
     return getData;
 }
+/**
+ * Returns the data that is sent to API without Authentication
+ * @param {string} method Method to send i.e 'POST','GET','DELETE'...
+ * @returns getData (Header-Data) with no Body or Authentication
+ */
 export function headerWithoutAuth(method) {
     const getData = {
         method: method,
@@ -18,6 +28,12 @@ export function headerWithoutAuth(method) {
     };
     return getData;
 }
+/**
+ * Returns the data that is sent to API with Authentication and body
+ * @param {string} method Method to send i.e 'POST','GET','DELETE'...
+ * @param {object} body object that contains the items for API
+ * @returns getData (Header-Data) with Authentication and Body
+ */
 export function headerWithAuthAndBody(method, body) {
     const token = localStorage.getItem('accessToken');
     const getData = {
@@ -30,6 +46,12 @@ export function headerWithAuthAndBody(method, body) {
     };
     return getData;
 }
+/**
+ * Returns the data that is sent to API with only Body
+ * @param {string} method Method to send i.e 'POST','GET','DELETE'...
+ * @param {object} body object that contains the items for API
+ * @returns getData (Header-Data) with only Body
+ */
 export function headerWithBodyNoAuth(method, body) {
     const getData = {
         method: method,
