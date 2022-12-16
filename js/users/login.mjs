@@ -8,6 +8,9 @@ import { headerWithBodyNoAuth } from "../api/index.mjs";
  */
 export async function loginUser(url, user) {
     try {
+        if (user.name) {
+            delete user.name;
+        }
         const response = await fetch(url, headerWithBodyNoAuth('POST', user));
         const json = await response.json();
         console.log(json);

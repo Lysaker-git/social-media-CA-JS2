@@ -6,19 +6,16 @@ import { userData } from "../reuseables/userData.mjs";
 /**
  * function to register user and then log them into application. 
  * @param {string} url URL to register user
- * @param {object} user user object to register user - and if user is registered logs the user in.
+ * @param {object} usrData user object to register user - and if user is registered logs the user in.
  * @returns json object
  */
-export async function registerUser(url, userData) {
+export async function registerUser(url, user) {
   try {
     const response = await fetch(url, headerWithBodyNoAuth('POST', user));
     const json = await response.json();
     const id = json.id; 
     if(id) {
-        const mail = userData.email;
-        const password = userData.password;
-        userData(mail, password);
-        loginUser(LOGIN_COMPLETE_URL, user);
+        loginUser(LOGIN_COMPLETE_URL, userData(user.mail,user.pass));
     } else {
         const { errors } = json;
         let message = ""
