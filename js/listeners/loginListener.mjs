@@ -13,12 +13,7 @@ export function loginListener() {
         e.preventDefault();
         const mail = document.querySelector(".loginEmail").value;
         const pass = document.querySelector(".loginPass").value;
-    
-        // userData(mail, pass);
-        // const user = {
-        //     email: mail,
-        //     password: pass,
-        // };
+
         loginUser(LOGIN_COMPLETE_URL, userData(mail, pass));
     });
 };

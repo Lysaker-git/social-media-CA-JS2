@@ -1,7 +1,7 @@
 /**
  * Returns the data that is sent to API with Authentication
  * @param {string} method Method to send i.e 'POST','GET','DELETE'...
- * @returns getData (Header-Data) that contains Authentication with lokal AccessToken
+ * @returns getData (Header-Data) that contains Authentication with local AccessToken
  */
 export function headerWithAuth(method) {
     const token = localStorage.getItem('accessToken');

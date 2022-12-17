@@ -37,6 +37,7 @@ export function editTemplate (container, content) {
                 <div class="">
                     <button type="button" class="btn btn-secondary mb-3" data-bs-dismiss="modal">Close</button>
                     <button type="submit" id="postData${content.id}" class="btn btn-primary mb-3">Submit</button>
+                    <button type="button" class="delete-btn-${content.id} btn btn-info mb-3" data-bs-dismiss="modal">Delete</button>
                 </div>
             </form>
             </div>

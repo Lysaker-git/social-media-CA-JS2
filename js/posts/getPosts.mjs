@@ -9,7 +9,6 @@ import { editTemplate } from "../templates/editTemplate.mjs";
  */
 export async function getPosts(url) {
     try {
-        const loggedIn = localStorage.getItem('name')
         const response = await fetch(url, headerWithAuth('GET'));
         
         const json = await response.json();
@@ -17,10 +16,6 @@ export async function getPosts(url) {
         const postContainer = document.querySelector('.postContainer');
         json.forEach((content) => {
             postTemplate(postContainer, content)
-        
-            if (loggedIn === content.author.name) {
-                editTemplate(postContainer, content);
-            }
         });
     } catch (e) {
         console.log(e)

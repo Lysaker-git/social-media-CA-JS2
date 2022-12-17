@@ -5,7 +5,7 @@
  * @returns post variable that is OK for API
  */
 
-export function postContent(title, body) {
+export function postContent(postTitle, postBody) {
     return post = {
         title: postTitle,
         body: postBody,

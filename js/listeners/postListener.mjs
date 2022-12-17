@@ -1,5 +1,6 @@
+import { headerWithAuth } from "../api/headers.mjs";
 import { POSTS_COMPLETE_URL, POSTS_CREATE_URL } from "../constants/url.mjs";
-import { getPosts } from "../posts/index.mjs";
+import { createSinglePost, deletePost, getPosts } from "../posts/index.mjs";
 import { createPosts } from "../posts/index.mjs";
 import { postContent } from "../reuseables/postData.mjs";
 
@@ -8,6 +9,7 @@ import { postContent } from "../reuseables/postData.mjs";
  */
 export function postListener() {
     getPosts(POSTS_COMPLETE_URL);
+
 }
 
 /**
@@ -17,11 +19,26 @@ export function createPostListener() {
     const formElement = document.querySelector('.form');
     formElement.addEventListener('submit', (e) => {
         e.preventDefault();
-        const postTitle = document.querySelector('#formTitle').value;
-        const postBody = document.querySelector('#formBody').value;
+        const postTitle = document.querySelector('#formTitle');
+        const postBody = document.querySelector('#formBody');
 
-        postContent(postTitle,postBody);
+        const post = {
+            title: postTitle.value,
+            body: postBody.value,
+        };
         createPosts(POSTS_CREATE_URL, post);
+        postTitle.reset();
+        postBody.reset();
         location.reload();
     })
+}
+
+export function singlePostListener() {
+    createSinglePost(POSTS_CREATE_URL);
+}
+export async function deletePostListener(url) {
+    const deleteBtn = document.querySelector('.delete-btn');
+
+    deletePost(deleteBtn);
+
 }

@@ -6,15 +6,17 @@
  */
 
 export function postTemplate(container, content) {
-    return container.innerHTML += 
+    container.innerHTML += 
     `
-    <div id="${content.id}" class="row image-background">
+    <div id="${content.id}" class="row image-background p-2 my-5">
         <h3>${content.title}</h3>
         <hr>
         <p>${content.body}</p>    
     </div>
-    <div class="row details-container">
+    <hr>
+    <div class="row details-container p-2 d-flex">
         <p>${content.author.name}</p>
+        <a href="post.html?id=${content.id}">View post</a>
     </div>
     `
 }

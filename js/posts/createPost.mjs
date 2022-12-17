@@ -7,9 +7,11 @@ import { headerWithAuthAndBody } from "../api/headers.mjs";
  * @param {object} postData postData created with function headerWithAuthAndBody(method = 'POST', data)
  */
 export async function createPosts(url, postData) {
+    console.log(postData)
     const response = await fetch(url, headerWithAuthAndBody('POST', postData));
     const json = await response.json();
     console.log(json)
+    
     if (json.id) {
         console.log("success")
     } else {

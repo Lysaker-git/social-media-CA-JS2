@@ -20,4 +20,6 @@ switch (true) {
         listeners.loginListener();
         break;
     default: 
+        listeners.singlePostListener();
+        break;
 };
