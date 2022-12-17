@@ -4,7 +4,8 @@
  * @returns getData (Header-Data) that contains Authentication with local AccessToken
  */
 export function headerWithAuth(method) {
-    const token = localStorage.getItem('accessToken');
+    const token = localStorage.getItem('accesstoken');
+    console.log(token)
     const getData = {
         method: method,
         headers: {
@@ -12,6 +13,7 @@ export function headerWithAuth(method) {
             Authorization: `Bearer ${token}`,
         },
     };
+    console.log(getData)
     return getData;
 }
 /**
@@ -35,7 +37,7 @@ export function headerWithoutAuth(method) {
  * @returns getData (Header-Data) with Authentication and Body
  */
 export function headerWithAuthAndBody(method, body) {
-    const token = localStorage.getItem('accessToken');
+    const token = localStorage.getItem('accesstoken');
     const getData = {
         method: method,
         headers: {

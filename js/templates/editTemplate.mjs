@@ -8,7 +8,7 @@ import { whatPage } from "../main.mjs"
  */
 export function editTemplate (container, content) {
     let editVar = "";
-    if (whatPage.includes('posts')) {
+    if (whatPage.includes('post')) {
         editVar = 'post';
     } else if (whatPage.includes('profile')) {
         editVar = 'Profile';

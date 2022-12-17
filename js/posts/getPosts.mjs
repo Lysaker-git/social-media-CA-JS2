@@ -12,7 +12,7 @@ export async function getPosts(url) {
         const response = await fetch(url, headerWithAuth('GET'));
         
         const json = await response.json();
-        const allPosts = json;
+        console.log(json)
         const postContainer = document.querySelector('.postContainer');
         json.forEach((content) => {
             postTemplate(postContainer, content)

@@ -11,8 +11,11 @@ export async function fetchProfile (url) {
     try {
         const name = localStorage.getItem('name');
         const fullURL = `${url}/${name}`;
+        console.log(fullURL)
         const response = await fetch(fullURL, headerWithAuth('GET'));
+        console.log(response)
         const json = await response.json();
+        console.log(json)
         const doc = document
         profileData(json, doc);
     } catch (e) {

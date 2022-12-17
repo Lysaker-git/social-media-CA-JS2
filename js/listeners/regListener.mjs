@@ -15,7 +15,11 @@ export function registerListener() {
         const mail = document.querySelector("#signupMail").value;
         const pass = document.querySelector("#signupPass").value;
 
-        userData(mail, pass, name);
+        const user = {
+            name: name,
+            email: mail,
+            password: pass,
+        }        
         registerUser(REG_COMPLETE_URL, user);
     });
 }

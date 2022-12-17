@@ -11,11 +11,12 @@ import { userData } from "../reuseables/userData.mjs";
  */
 export async function registerUser(url, user) {
   try {
+    console.log(user)
     const response = await fetch(url, headerWithBodyNoAuth('POST', user));
     const json = await response.json();
     const id = json.id; 
     if(id) {
-        loginUser(LOGIN_COMPLETE_URL, userData(user.mail,user.pass));
+        loginUser(LOGIN_COMPLETE_URL, user);
     } else {
         const { errors } = json;
         let message = ""
