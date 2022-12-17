@@ -33,11 +33,11 @@ export function singlePostTemplate(content, container) {
                     <form action="" method="POST" id="formEdit" class="form modal-body">
                         <div class="mb-3">
                             <label for="formTitle" class="form-label">Title:</label>
-                            <input type="text" class="form-control" id="formTitle" placeholder="">
+                            <input type="text" class="form-control" id="formTitle" placeholder="" value="${content.title}">
                         </div>
                         <div class="mb-3">
                             <label for="formBody" class="form-label">Your Message:</label>
-                            <textarea class="form-control" id="formBody" rows="3"></textarea>
+                            <textarea class="form-control" id="formBody" rows="3">${content.body}</textarea>
                         </div>
                         <div class="">
                         <button type="submit" class="btn btn-primary mb-3">Submit</button>
