@@ -1,13 +1,11 @@
+import { headerWithAuth } from "../api/headers.mjs";
 
-export function deletePost(btn) {
-        console.log("listener added")
-        btn.addEventListener('submit', async (e) => {
-            console.log(e)
-            e.preventDefault();
-            console.log('hi')
-    
-            deleteResponse = await fetch(url, headerWithAuth('DELETE'))
-            console.log(deleteResponse);
-            window.location.assign("/posts.html");
-        });
+export async function deletePost(id, url) {
+    console.log('exec')
+    const postUrl = `${url}/${id}`;
+    console.log(postUrl)
+    const response = await fetch(postUrl, headerWithAuth('DELETE'));
+    const json = await response.json();
+    console.log(json);
+    window.location.assign("/posts.html");
 };

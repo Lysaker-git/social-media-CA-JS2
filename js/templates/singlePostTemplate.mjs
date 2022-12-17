@@ -59,8 +59,8 @@ export function singlePostTemplate(content, container) {
                     <div class="modal-body">
                         <p>This will delete the post...</p> 
                     </div>
-                    <form action="" method="POST" id="formDelete" class="form modal-footer">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Delete">Delete</button>
+                    <form action="" method="DELETE" id="formDelete" class="form modal-footer">
+                        <button type="submit" class="btn btn-primary" aria-label="Delete">Delete</button>
                     </form>
                 </div>
             </div>

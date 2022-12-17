@@ -6,15 +6,15 @@ import { headerWithAuthAndBody } from "../api/headers.mjs";
  * @param {string} url passing url for where you can send postData
  * @param {object} postData postData created with function headerWithAuthAndBody(method = 'POST', data)
  */
-export async function createPosts(url, postData) {
-    console.log(postData)
+export async function createPost(url, postData) {
+    // console.log(postData)
+    console.log(url, postData);
     const response = await fetch(url, headerWithAuthAndBody('POST', postData));
     const json = await response.json();
-    console.log(json)
-    
-    if (json.id) {
-        console.log("success")
-    } else {
-        console.log("try again")
-    }
+    console.log('Json:', json)
+    console.log('Response:', response)
+
+    if (response.ok) {        
+        window.location.assign(`/post.html?id=${json.id}`);
+    };
 }

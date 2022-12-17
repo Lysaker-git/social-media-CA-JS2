@@ -16,5 +16,5 @@ export async function createSinglePost(url) {
 
     singlePostTemplate(json, container);
 
-    deletePostListener(id);
+    deletePostListener(id, url);
 }
