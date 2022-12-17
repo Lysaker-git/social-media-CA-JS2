@@ -9,12 +9,14 @@ export async function filteredPosts (url, term) {
 
     const filtered = json.filter(post => {
 
+        let id = post.id.toString();
+        const author = post.author.name.toLowerCase();
         const title = post.title.toLowerCase();
         let body = "";
         if (post.body) {
             body = post.body.toLowerCase();
         }
-        return title.includes(properTerm) || body.includes(properTerm);
+        return title.includes(properTerm) || body.includes(properTerm) || author.includes(properTerm) || id.includes(properTerm);
     });
 
 
