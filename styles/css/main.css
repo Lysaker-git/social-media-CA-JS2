@@ -10781,4 +10781,8 @@ textarea.form-control-lg {
   place-content: center;
 }
 
+body {
+  background-image: url(/assets/BG-GENERIC.svg);
+}
+
 /*# sourceMappingURL=main.css.map */

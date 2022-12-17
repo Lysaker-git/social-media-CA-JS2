@@ -1,7 +1,6 @@
 import { LOGIN_COMPLETE_URL } from "../constants/url.mjs";
 import { headerWithBodyNoAuth } from "../api/index.mjs";
 import { loginUser } from "./login.mjs";
-import { userData } from "../reuseables/userData.mjs";
 
 /**
  * function to register user and then log them into application. 

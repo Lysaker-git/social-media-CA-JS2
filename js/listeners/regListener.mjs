@@ -1,5 +1,4 @@
 import { REG_COMPLETE_URL } from "../constants/url.mjs";
-import { userData } from "../reuseables/userData.mjs";
 import { registerUser } from "../users/registration.mjs";
 
 

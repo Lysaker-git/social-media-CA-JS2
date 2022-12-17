@@ -1,5 +1,4 @@
 import { LOGIN_COMPLETE_URL } from "../constants/url.mjs";
-import { userData } from "../reuseables/userData.mjs";
 import { loginUser } from "../users/index.mjs";
 
 
@@ -14,6 +13,11 @@ export function loginListener() {
         const mail = document.querySelector(".loginEmail").value;
         const pass = document.querySelector(".loginPass").value;
 
-        loginUser(LOGIN_COMPLETE_URL, userData(mail, pass));
+        const user = {
+            email: mail,
+            password: pass,
+        }
+
+        loginUser(LOGIN_COMPLETE_URL, user);
     });
 };
