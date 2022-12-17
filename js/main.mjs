@@ -9,6 +9,7 @@ switch (true) {
     case returnLoc('posts'):
         listeners.createPostListener();
         listeners.postListener();
+        
         break;
     case returnLoc('profile'):
         listeners.createProfileListener();
