@@ -1,5 +1,5 @@
 import { headerWithAuth } from "../api/headers.mjs";
-import { deletePostListener } from "../listeners/postListener.mjs";
+import { deletePostListener, editPostListener } from "../listeners/postListener.mjs";
 import { singlePostTemplate } from "../templates/singlePostTemplate.mjs";
 
 
@@ -15,6 +15,6 @@ export async function createSinglePost(url) {
     const json = await response.json();
 
     singlePostTemplate(json, container);
-
+    editPostListener(id, url);
     deletePostListener(id, url);
 }

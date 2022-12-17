@@ -15,7 +15,6 @@ export function postListener() {
  */
 export function createPostListener() {
     const formElement = document.querySelector('#createPostForm');
-    console.log(formElement)
     formElement.addEventListener('submit', (e) => {
         e.preventDefault();
         const postTitle = document.querySelector('#formTitle');
@@ -25,19 +24,35 @@ export function createPostListener() {
             title: postTitle.value,
             body: postBody.value,
         };
-        createPost(POSTS_CREATE_URL, post);
-        // location.reload();
+        createPost(POSTS_CREATE_URL, post, 'POST');
     })
 }
 
 export function singlePostListener() {
     createSinglePost(POSTS_CREATE_URL);
 }
-export async function deletePostListener(id, url) {
+export function deletePostListener(id, url) {
     const deleteForm = document.querySelector('#formDelete');
     deleteForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        console.log('Pressed')
         deletePost(id, url);
+    })
+}
+
+export function editPostListener(id, url) {
+    const editForm = document.querySelector('#formEdit');
+    console.log(editForm);
+    editForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const Title = editForm.formTitle;
+        const Body = editForm.formBody;
+        const updateUrl = `${url}/${id}`;
+
+        const newPost = {
+            title: Title.value,
+            body: Body.value,
+        }
+        createPost(updateUrl, newPost, 'PUT');
+
     })
 }
