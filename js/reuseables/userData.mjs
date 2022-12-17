@@ -6,19 +6,19 @@
  * @returns user variable to pass to API. 
  */
 
-export function userData(mail, pass, person = undefined) {
-    if (person) {
-        console.log("No-name");
-    } else {
-        console.log('Name');
-        const user = {
-            email: mail,
-            password: pass,
-        }
-        console.log(user);
-        return user;
-    }
-}
+// export function userData(mail, pass, person = undefined) {
+//     if (person) {
+//         console.log("No-name");
+//     } else {
+//         console.log('Name');
+//         const user = {
+//             email: mail,
+//             password: pass,
+//         }
+//         console.log(user);
+//         return user;
+//     }
+// }
 
 
 

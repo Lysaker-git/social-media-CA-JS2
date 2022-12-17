@@ -10769,5 +10769,16 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+@font-face {
+  font-family: "Nabla";
+  src: url(../../assets/fonts/Nabla.ttf);
+}
+.header-title {
+  font-family: "Nabla", cursive;
+}
+
+.custom-container {
+  place-content: center;
+}
 
 /*# sourceMappingURL=main.css.map */
