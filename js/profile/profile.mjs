@@ -42,7 +42,7 @@ function profileData (profile, doc) {
     const profileContainer = doc.querySelector('.profileContainer')
     const wrapper = doc.createElement('div');
     const followers = doc.createElement('section');
-    wrapper.classList.add('row');
+    wrapper.classList.add('row', 'p-5', 'rounded', 'shadow', 'bg-primary', 'bg-gradient', 'bg-opacity-25');
     followers.classList.add('container');
 
     followers.innerHTML = 

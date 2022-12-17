@@ -1,5 +1,9 @@
+@import "override.scss";
+
 // BS import 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+
 
 // Font
 @font-face {
@@ -15,4 +19,30 @@
 }
 body {
     background-image: url(/assets/BG-GENERIC.svg)
+}
+.profileContainer {
+    place-content: center;
+
+}
+// .profileContainer>.row, .navbar-toggler, .navbar-nav {
+//     background-color: rgba($color: #90a000, $alpha: .3);
+//     background-blend-mode: overlay;    
+// }
+.navbar-nav {
+    width: fit-content;
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+}
+.active {
+    position: relative;
+}
+.active::after {
+    content:'';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 3px;
+    bottom: 0;
+    background-color: #041163;
 }

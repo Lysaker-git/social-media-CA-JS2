@@ -10785,4 +10785,29 @@ body {
   background-image: url(/assets/BG-GENERIC.svg);
 }
 
+.profileContainer {
+  place-content: center;
+}
+
+.navbar-nav {
+  width: fit-content;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.active {
+  position: relative;
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  bottom: 0;
+  background-color: #041163;
+}
+
 /*# sourceMappingURL=main.css.map */
