@@ -5,7 +5,6 @@
  */
 export function headerWithAuth(method) {
     const token = localStorage.getItem('accesstoken');
-    console.log(token)
     const getData = {
         method: method,
         headers: {
@@ -13,7 +12,6 @@ export function headerWithAuth(method) {
             Authorization: `Bearer ${token}`,
         },
     };
-    console.log(getData)
     return getData;
 }
 /**

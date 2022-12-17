@@ -1,4 +1,5 @@
 import { headerWithAuth } from "../api/headers.mjs";
+import { logoutListener } from "../listeners/logoutListener.mjs";
 import { profileTemplate } from "../templates/index.mjs";
 
 
@@ -11,11 +12,8 @@ export async function fetchProfile (url) {
     try {
         const name = localStorage.getItem('name');
         const fullURL = `${url}/${name}`;
-        console.log(fullURL)
         const response = await fetch(fullURL, headerWithAuth('GET'));
-        console.log(response)
         const json = await response.json();
-        console.log(json)
         const doc = document
         profileData(json, doc);
     } catch (e) {
@@ -43,6 +41,8 @@ function profileData (profile, doc) {
     profileTemplate(wrapper, profile);
     profileContainer.append(wrapper);
     profileContainer.parentNode.insertBefore(followers, profileContainer.nextSibling);
+    logoutListener();
+
 };
 
 

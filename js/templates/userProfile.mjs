@@ -13,5 +13,8 @@ export function profileTemplate(container, values) {
     <img src="${values.avatar}" alt="avatar">
     <hr>
     <p>Email: ${values.email}</p>
+    <form class="form" id="logoutForm">
+        <button class="btn btn-primary" type="submit">Log out</button>
+    </form>
     `;
 }
