@@ -10,10 +10,21 @@ import { profileTemplate } from "../templates/index.mjs";
  */
 export async function fetchProfile (url) {
     try {
-        const name = localStorage.getItem('name');
+        const queryString = document.location.search;
+        const parameters = new URLSearchParams(queryString);
+        const checkParam = Boolean(parameters.get('name'));
+        let name = "";
+        if (checkParam) {
+            console.log('What')
+            name = parameters.get("name")
+        } else {
+            console.log('Nope')
+            name = localStorage.getItem('name');
+        }
         const fullURL = `${url}/${name}`;
         const response = await fetch(fullURL, headerWithAuth('GET'));
         const json = await response.json();
+        console.log(json)
         const doc = document
         profileData(json, doc);
     } catch (e) {

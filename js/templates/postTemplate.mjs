@@ -16,6 +16,7 @@ export function postTemplate(container, content) {
     <hr>
     <div class="row details-container p-2 d-flex">
         <p>${content.author.name}</p>
+        <a href="profile.html?name=${content.author.name}">See profile</a>
         <a href="post.html?id=${content.id}">View post</a>
     </div>
     `

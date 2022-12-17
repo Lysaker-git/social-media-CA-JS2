@@ -10,7 +10,7 @@ import { editTemplate } from "../templates/editTemplate.mjs";
 export async function getPosts(url) {
     try {
         const response = await fetch(url, headerWithAuth('GET'));
-        
+        console.log(url)
         const json = await response.json();
         console.log(json)
         const postContainer = document.querySelector('.postContainer');
