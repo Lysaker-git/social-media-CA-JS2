@@ -1,7 +1,14 @@
 import { headerWithAuth } from "../api/headers.mjs";
 import { postTemplate } from "../templates/postTemplate.mjs";
 
-
+/**
+ * Filters posts based on users search - filters with checkboxes
+ * I.E what checkbox is checked and searches for content in that area. 
+ * Default is all checkboxes checked. 
+ * @param {string} url - URL to all posts API so we can run a fetch function
+ * @param {(string, number)} term search Term to look up user. Number or string
+ * @returns filtered list of posts and pass it to postTemplate(container, post)
+ */
 export async function filteredPosts (url, term) {
     const response = await fetch(url, headerWithAuth('GET'))
     const json = await response.json();
@@ -46,7 +53,10 @@ export async function filteredPosts (url, term) {
     }
 };
 
-
+/**
+ * Filters all posts and returns the users posts. 
+ * @param {string} url - url to fetch posts
+ */
 export async function filterUserPosts(url) {
     const queryString = document.location.search;
     const parameters = new URLSearchParams(queryString);

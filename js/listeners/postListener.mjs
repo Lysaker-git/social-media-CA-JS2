@@ -28,9 +28,21 @@ export function createPostListener() {
     });
 };
 
+/**
+ * Listens to entrance into singlePostPage. 
+ * Will return post based on param in URL.
+ */
+
 export function singlePostListener() {
     createSinglePost(POSTS_CREATE_URL);
 }
+
+/**
+ * Will listen to the delete button and modal form. Then pass it to the 
+ * deletePost(id, url) function for deletion
+ * @param {number} id The ID of the post that will be deleted
+ * @param {string} url The url string to delete post. 
+ */
 export function deletePostListener(id, url) {
     const deleteForm = document.querySelector('#formDelete');
     deleteForm.addEventListener('submit', (e) => {
@@ -39,6 +51,12 @@ export function deletePostListener(id, url) {
     });
 };
 
+/**
+ * Will pass updated values to the edit post API.
+ * Then will update through createPost(url, post, method) where method is 'PUT'
+ * @param {number} id the ID of the post that will be edited
+ * @param {string} url The url for editing post. 
+ */
 export function editPostListener(id, url) {
     const editForm = document.querySelector('#formEdit');
     console.log(editForm);

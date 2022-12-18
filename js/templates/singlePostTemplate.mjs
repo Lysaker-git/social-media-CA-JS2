@@ -1,5 +1,12 @@
 import { whatPage } from "../main.mjs";
 
+
+/**
+ * Function to create a HTML template for a single post - and edit/delete forms if author = logged in.
+ * @param {object} content - json content of the post content. I.E title, body, author.name and id.
+ * @param {object} container - container where the HTML will be rendered.
+ * @returns HTML that will be placed inside container
+ */
 export function singlePostTemplate(content, container) {
     let editVar = "";
     if (whatPage.includes('post')) {
