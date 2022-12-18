@@ -11,13 +11,22 @@ export function singlePostTemplate(content, container) {
     const author = content.author.name;
     const loggedIN = localStorage.getItem('name');
 
-    const startOfContainer = `<div class="container">`
+    const startOfContainer = `<div class="container d-flex flex-column p-2">`
     const bodyOfContainer = `
-    <div class="row">
-      <h1>${content.title}</h1>
-    </div>
-    <div class="row">
-        <p>${content.body}</p>
+    <figure class="row">
+    <h3 class="text-light display-6 fw-semibold text-capitalize">${content.title}</h3>
+    <blockquote class="blockquote">
+        <p class="text-light">${content.body}</p>
+    </blockquote>
+    <figcaption class="blockquote-footer text-light">
+        ${content.author.name}
+    </figcaption>
+    </figure>
+    <div class="details-container p-2 d-flex">
+        <div class="d-flex ms-auto flex-column">
+            <a  class="text-end p-1 text-info" href="profile.html?name=${content.author.name}">See profile</a>
+            <p class="text-end p-1 text-light" ><small>ID: ${content.id}</small></p>
+        </div>
     </div>
     `
     let editBody = "";
@@ -65,7 +74,7 @@ export function singlePostTemplate(content, container) {
                 </div>
             </div>
         </div>
-      <a class="btn btn-primary" data-bs-toggle="modal" href="#editModal" role="button">Edit ${editVar}</a>
+      <a class="btn btn-primary ms-auto bg-opacity-25 bg-primary bg-gradient" data-bs-toggle="modal" href="#editModal" role="button">Edit ${editVar}</a>
         `
     }
     const endOfContainer = `
