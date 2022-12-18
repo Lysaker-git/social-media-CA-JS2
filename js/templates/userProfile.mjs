@@ -8,10 +8,11 @@
 export function profileTemplate(container, values) {
     let banner = values.banner;
     let avatar = values.avatar;
-    if (avatar === null) {
+    console.log(banner)
+    if (avatar === null || avatar === "") {
         avatar = '/assets/AVATAR-GENERIC.svg';
     };
-    if (banner === null) {
+    if (banner === null || banner === "") {
         banner = '/assets/BANNER-GENERIC.svg';
     };
 
