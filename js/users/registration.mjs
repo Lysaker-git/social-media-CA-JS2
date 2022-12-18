@@ -1,36 +1,34 @@
-import {API_BASE_URL} from "../url.mjs";
+import { LOGIN_COMPLETE_URL } from "../constants/url.mjs";
+import { headerWithBodyNoAuth } from "../api/index.mjs";
+import { loginUser } from "./login.mjs";
 
 /**
- * This function will send the registration for new users to register an account.
- * @param {string} url 
- * @param {object} user  
- * @returns 
+ * function to register user and then log them into application. 
+ * @param {string} url URL to register user
+ * @param {object} usrData user object to register user - and if user is registered logs the user in.
+ * @returns json object
  */
-
-async function registerUser(url, data) {
+export async function registerUser(url, user) {
   try {
-    const postData = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    };
-
-    const response = await fetch(url, postData);
-    console.log(response);
+    const response = await fetch(url, headerWithBodyNoAuth('POST', user));
     const json = await response.json();
-    console.log(json);
+    const id = json.id; 
+    if(id) {
+        loginUser(LOGIN_COMPLETE_URL, user);
+    } else {
+        const { errors } = json;
+        let message = "";
+        errors.forEach((error) => {
+            console.log(error.message);
+            message += error.message + "<br>"
+        });
+        const alertBox = document.querySelector('.alert-box');
+        alertBox.classList.remove('d-none');
+        alertBox.innerHTML = `<p>${message}</p>`;
+    }
+    // console.log(json);
     return json;
   } catch (error) {
-    console.log(error);
-  }
-}
-
-const user = {
-  name: '',
-  email: '',
-  password: '',
+    // console.log(error);
+  };
 };
-
-// registerUser(`${API_BASE_URL}/api/v1/social/auth/register`, user);
