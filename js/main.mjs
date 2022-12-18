@@ -14,6 +14,7 @@ switch (true) {
         listeners.createPostListener();
         listeners.postListener();
         listeners.filterListener();
+        listeners.sortingListener();
         break;
     case returnLoc('profile'):
         listeners.createProfileListener();
