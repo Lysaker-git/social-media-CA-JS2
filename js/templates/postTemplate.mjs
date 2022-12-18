@@ -11,7 +11,7 @@ export function postTemplate(container, content) {
     <hr>
     <div id="${content.id}" class=" image-background p-2">
     <figure>
-        <h3 class="text-light">${content.title}</h3>
+        <h3 class="text-light display-6 fw-semibold text-capitalize">${content.title}</h3>
         <blockquote class="blockquote">
             <p class="text-light">${content.body}</p>
         </blockquote>

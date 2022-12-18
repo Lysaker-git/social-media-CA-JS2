@@ -10826,4 +10826,8 @@ body {
   --bs-text-opacity: .8;
 }
 
+.searchContainer {
+  margin-top: 5rem;
+}
+
 /*# sourceMappingURL=main.css.map */
