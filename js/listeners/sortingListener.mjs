@@ -7,5 +7,5 @@ export function sortingListener() {
     selectOptions.addEventListener('input', (e) => {
         const value = selectOptions.options[selectOptions.selectedIndex].value
         sortPosts(value);
-    })
-}
+    });
+};
