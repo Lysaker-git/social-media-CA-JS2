@@ -24,7 +24,6 @@ export async function fetchProfile (url) {
         const fullURL = `${url}/${name}`;
         const response = await fetch(fullURL, headerWithAuth('GET'));
         const json = await response.json();
-        console.log(json)
         const doc = document
         profileData(json, doc);
         filterUserPosts(POSTS_COMPLETE_URL);

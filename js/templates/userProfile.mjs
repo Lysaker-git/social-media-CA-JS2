@@ -8,7 +8,6 @@
 export function profileTemplate(container, values) {
     let banner = values.banner;
     let avatar = values.avatar;
-    console.log(banner)
     if (avatar === null || avatar === "") {
         avatar = '/assets/AVATAR-GENERIC.svg';
     };

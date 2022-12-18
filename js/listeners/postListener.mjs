@@ -59,7 +59,6 @@ export function deletePostListener(id, url) {
  */
 export function editPostListener(id, url) {
     const editForm = document.querySelector('#formEdit');
-    console.log(editForm);
     editForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const Title = editForm.formTitle;

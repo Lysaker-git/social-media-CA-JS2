@@ -14,7 +14,6 @@ export function singlePostTemplate(content, container) {
     } else if (whatPage.includes('profile')) {
         editVar = 'Profile';
     };
-    console.log(content.author.name);
     const author = content.author.name;
     const loggedIN = localStorage.getItem('name');
 
