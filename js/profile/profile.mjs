@@ -1,4 +1,6 @@
 import { headerWithAuth } from "../api/headers.mjs";
+import { POSTS_COMPLETE_URL } from "../constants/url.mjs";
+import { filterUserPosts } from "../findcontent/filters.mjs";
 import { logoutListener } from "../listeners/logoutListener.mjs";
 import { profileTemplate } from "../templates/index.mjs";
 
@@ -27,6 +29,8 @@ export async function fetchProfile (url) {
         console.log(json)
         const doc = document
         profileData(json, doc);
+        filterUserPosts(POSTS_COMPLETE_URL);
+
     } catch (e) {
         console.log(e);
     }
@@ -42,7 +46,7 @@ function profileData (profile, doc) {
     const profileContainer = doc.querySelector('.profileContainer')
     const wrapper = doc.createElement('div');
     const followers = doc.createElement('section');
-    wrapper.classList.add('row', 'p-5', 'rounded', 'shadow', 'bg-primary', 'bg-gradient', 'bg-opacity-25');
+    wrapper.classList.add('row', 'rounded', 'p-4', 'shadow', 'bg-primary', 'bg-gradient', 'bg-opacity-25');
     followers.classList.add('container');
 
     followers.innerHTML = 

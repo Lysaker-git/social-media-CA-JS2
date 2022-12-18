@@ -27,3 +27,27 @@ export async function filteredPosts (url, term) {
         postTemplate(postContainer, post);
     })
 }
+
+export async function filterUserPosts(url) {
+    const queryString = document.location.search;
+    const parameters = new URLSearchParams(queryString);
+    const checkParam = Boolean(parameters.get('name'));
+    let name = "";
+    if (checkParam) {
+        name = parameters.get("name");
+    } else {
+        name = localStorage.getItem('name');
+    }
+    const response = await fetch(url, headerWithAuth('GET'))
+    const json = await response.json();
+    const filteredPosts = json.filter(post => {
+        const author = post.author.name.toLowerCase();
+        const profileName = name.toLowerCase();
+        
+        return author.includes(profileName)
+    });
+    
+    const postsContainer = document.querySelector('.profilePosts');
+    console.log(postsContainer);
+    filteredPosts.forEach((post) => {postTemplate(postsContainer, post)});
+}
