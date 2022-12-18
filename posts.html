@@ -30,16 +30,24 @@
           </div>
         </div>
       </nav>
-      <div class="container">
+      <div class="container w-100 d-flex flex-column">
         <div class="row">
             <form action="" id="searchBar" class="form">
                 <div class="mt-5 pt-3 d-flex">
                     <label for="searchContent" class="form-label p-2">Search:</label>
                     <input type="text" class="form-control" id="searchContent" placeholder="">
                 </div>
+                <div class="checkboxes">
+                  <label class="text-light" for="titleAndBody">Content</label>
+                  <input checked type="checkbox" name="titleAndBody" id="checkboxContent">
+                  <label class="text-light" for="author">Author</label>
+                  <input checked type="checkbox" name="author" id="checkboxAuthor">
+                  <label class="text-light" for="id">ID</label>
+                  <input checked type="checkbox" name="id" id="checkboxID">
+                </div>
             </form>
         </div>
-        <button type="button" class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#postModal">
+        <button type="button" class=" border-0 ms-auto btn btn-primary my-3 bg-primary bg-gradient bg-opacity-50" data-bs-toggle="modal" data-bs-target="#postModal">
             Create Post
           </button>
         
@@ -69,7 +77,7 @@
       </div>
     <main class="container wrapper" style="margin-top: 5h;">
 
-        <div class="row postContainer">
+        <div class="row postContainer row rounded p-4 shadow bg-primary bg-gradient bg-opacity-25 mt-5">
             
         </div>
     </main>

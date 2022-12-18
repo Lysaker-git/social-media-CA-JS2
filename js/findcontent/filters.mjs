@@ -7,14 +7,29 @@ export async function filteredPosts (url, term) {
     const json = await response.json();
     const properTerm = term.toLowerCase();
 
+    const contentCheck = document.querySelector('#checkboxContent');
+    const authorCheck = document.querySelector('#checkboxAuthor');
+    const idCheck = document.querySelector('#checkboxID');
+
+
     const filtered = json.filter(post => {
 
         let id = post.id.toString();
-        const author = post.author.name.toLowerCase();
-        const title = post.title.toLowerCase();
+        let author = post.author.name.toLowerCase();
+        let title = post.title.toLowerCase();
         let body = "";
         if (post.body) {
             body = post.body.toLowerCase();
+        }
+        if (!contentCheck.checked) {
+            title = "";
+            body = "";
+        }
+        if (!authorCheck.checked) {
+            author = "";
+        }
+        if (!idCheck.checked) {
+            id = "";
         }
         return title.includes(properTerm) || body.includes(properTerm) || author.includes(properTerm) || id.includes(properTerm);
     });
@@ -27,6 +42,7 @@ export async function filteredPosts (url, term) {
         postTemplate(postContainer, post);
     })
 }
+
 
 export async function filterUserPosts(url) {
     const queryString = document.location.search;
