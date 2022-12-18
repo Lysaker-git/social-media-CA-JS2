@@ -8,12 +8,12 @@ import { headerWithBodyNoAuth } from "../api/index.mjs";
  */
 export async function loginUser(url, user) {
     try {
+        const alertBox = document.querySelector('.alert-box');
         if (user.name) {
             delete user.name;
         }
         const response = await fetch(url, headerWithBodyNoAuth('POST', user));
         const json = await response.json();
-        console.log(json);
 
         const accesstoken = json.accessToken;
         const name = json.name;
@@ -26,11 +26,14 @@ export async function loginUser(url, user) {
         } else {
             const { errors } = json;
             errors.forEach((error) => {
-                console.log(error);
+                alertBox.innerHTML += `
+                <p class="mt-2 p-2 alert alert-warning">${error.message}</p>
+                `
+                // console.log(error.message);
             });
         };
 
     } catch (e) {
-        console.log(e);
+        // console.log(e);
     };
 };

@@ -17,10 +17,8 @@ export async function fetchProfile (url) {
         const checkParam = Boolean(parameters.get('name'));
         let name = "";
         if (checkParam) {
-            console.log('What')
-            name = parameters.get("name")
+            name = parameters.get("name");
         } else {
-            console.log('Nope')
             name = localStorage.getItem('name');
         }
         const fullURL = `${url}/${name}`;

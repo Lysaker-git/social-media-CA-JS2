@@ -20,14 +20,15 @@ export async function registerUser(url, user) {
         let message = "";
         errors.forEach((error) => {
             console.log(error.message);
-            message += error.message + " "
+            message += error.message + "<br>"
         });
         const alertBox = document.querySelector('.alert-box');
+        alertBox.classList.remove('d-none');
         alertBox.innerHTML = `<p>${message}</p>`;
     }
-    console.log(json);
+    // console.log(json);
     return json;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   };
 };
