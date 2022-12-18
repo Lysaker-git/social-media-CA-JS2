@@ -19,7 +19,7 @@ export async function loginUser(url, user) {
         const name = json.name;
 
         localStorage.setItem('accesstoken', accesstoken);
-        localStorage.setItem('name', name)
+        localStorage.setItem('name', name);
 
         if (accesstoken) {
             location.assign('/profile.html');
@@ -28,9 +28,9 @@ export async function loginUser(url, user) {
             errors.forEach((error) => {
                 console.log(error);
             });
-        }
+        };
 
     } catch (e) {
-        console.log(e)
-    }
-}
+        console.log(e);
+    };
+};

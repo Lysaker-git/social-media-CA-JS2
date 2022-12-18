@@ -9,7 +9,7 @@ export async function createSinglePost(url) {
     const parameters = new URLSearchParams(queryString);
     const id = parameters.get("id");
     
-    const fullUrl = `${url}/${id}?_author=true`
+    const fullUrl = `${url}/${id}?_author=true`;
 
     const response = await fetch(fullUrl, headerWithAuth('GET'));
     const json = await response.json();

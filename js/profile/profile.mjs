@@ -33,8 +33,8 @@ export async function fetchProfile (url) {
 
     } catch (e) {
         console.log(e);
-    }
-}
+    };
+};
 
 /**
  * Getting passed profile and document to create the HTML for profile. Passes created elements with profile to the profileTemplate then appends it on the wrapper parent. 
@@ -59,5 +59,3 @@ function profileData (profile, doc) {
     logoutListener();
 
 };
-
-

@@ -10,7 +10,6 @@ import { loginUser } from "./login.mjs";
  */
 export async function registerUser(url, user) {
   try {
-    console.log(user)
     const response = await fetch(url, headerWithBodyNoAuth('POST', user));
     const json = await response.json();
     const id = json.id; 
@@ -18,17 +17,17 @@ export async function registerUser(url, user) {
         loginUser(LOGIN_COMPLETE_URL, user);
     } else {
         const { errors } = json;
-        let message = ""
+        let message = "";
         errors.forEach((error) => {
             console.log(error.message);
             message += error.message + " "
-        })
+        });
         const alertBox = document.querySelector('.alert-box');
-        alertBox.innerHTML = `<p>${message}</p>`
+        alertBox.innerHTML = `<p>${message}</p>`;
     }
     console.log(json);
     return json;
   } catch (error) {
     console.log(error);
-  }
+  };
 };

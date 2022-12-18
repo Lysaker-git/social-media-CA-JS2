@@ -21,4 +21,4 @@ export function registerListener() {
         }        
         registerUser(REG_COMPLETE_URL, user);
     });
-}
+};

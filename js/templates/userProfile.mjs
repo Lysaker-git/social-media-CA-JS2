@@ -10,12 +10,10 @@ export function profileTemplate(container, values) {
     let avatar = values.avatar;
     if (avatar === null) {
         avatar = '/assets/AVATAR-GENERIC.svg';
-    }
+    };
     if (banner === null) {
         banner = '/assets/BANNER-GENERIC.svg';
-    }
-
-    console.log(values.banner)
+    };
 
     return container.innerHTML = 
     `
@@ -31,4 +29,4 @@ export function profileTemplate(container, values) {
         </form>
     </div>
     `;
-}
+};

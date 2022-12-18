@@ -7,5 +7,5 @@ export function logoutListener() {
 
         localStorage.clear();
         window.location.assign('/index.html');
-    })
-}
+    });
+};

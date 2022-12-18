@@ -4,7 +4,7 @@ export const whatPage = location.pathname;
 
 export function returnLoc(page) {
     return whatPage.toLowerCase().includes(page);
-}
+};
 switch (true) {
     case returnLoc('posts'):
         listeners.createPostListener();

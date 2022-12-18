@@ -18,6 +18,6 @@ export function filterListener() {
                 document.querySelector('.postContainer').innerHTML = "";
                 getPosts(POSTS_COMPLETE_URL);
             }
-        }, 2000)
-    })
-}
+        }, 2000);
+    });
+};

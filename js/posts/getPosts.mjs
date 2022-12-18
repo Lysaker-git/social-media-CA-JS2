@@ -18,6 +18,6 @@ export async function getPosts(url) {
             postTemplate(postContainer, content)
         });        
     } catch (e) {
-        console.log(e)
-    }
-}
+        console.log(e);
+    };
+};

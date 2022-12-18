@@ -8,7 +8,7 @@ import { createPost } from "../posts/index.mjs";
 export function postListener() {
     getPosts(POSTS_COMPLETE_URL);
 
-}
+};
 
 /**
  * Listener to the createPost Form. When form is submitted it will fire the events to create a post.
@@ -25,8 +25,8 @@ export function createPostListener() {
             body: postBody.value,
         };
         createPost(POSTS_CREATE_URL, post, 'POST');
-    })
-}
+    });
+};
 
 export function singlePostListener() {
     createSinglePost(POSTS_CREATE_URL);
@@ -36,8 +36,8 @@ export function deletePostListener(id, url) {
     deleteForm.addEventListener('submit', (e) => {
         e.preventDefault();
         deletePost(id, url);
-    })
-}
+    });
+};
 
 export function editPostListener(id, url) {
     const editForm = document.querySelector('#formEdit');
@@ -54,5 +54,5 @@ export function editPostListener(id, url) {
         }
         createPost(updateUrl, newPost, 'PUT');
 
-    })
-}
+    });
+};

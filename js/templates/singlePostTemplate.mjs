@@ -1,4 +1,4 @@
-import { whatPage } from "../main.mjs"
+import { whatPage } from "../main.mjs";
 
 export function singlePostTemplate(content, container) {
     let editVar = "";
@@ -11,7 +11,7 @@ export function singlePostTemplate(content, container) {
     const author = content.author.name;
     const loggedIN = localStorage.getItem('name');
 
-    const startOfContainer = `<div class="container d-flex flex-column p-2">`
+    const startOfContainer = `<div class="container d-flex flex-column p-2">`;
     const bodyOfContainer = `
     <figure class="row">
     <h3 class="text-light display-6 fw-semibold text-capitalize">${content.title}</h3>
@@ -28,7 +28,7 @@ export function singlePostTemplate(content, container) {
             <p class="text-end p-1 text-light" ><small>ID: ${content.id}</small></p>
         </div>
     </div>
-    `
+    `;
     let editBody = "";
     if (author === loggedIN) {
         editBody = `
@@ -79,6 +79,6 @@ export function singlePostTemplate(content, container) {
     }
     const endOfContainer = `
         </div>
-    `
+    `;
     return container.innerHTML = startOfContainer + bodyOfContainer + editBody + endOfContainer;
 }

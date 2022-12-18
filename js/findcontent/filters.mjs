@@ -40,8 +40,8 @@ export async function filteredPosts (url, term) {
 
     filtered.forEach((post) => {
         postTemplate(postContainer, post);
-    })
-}
+    });
+};
 
 
 export async function filterUserPosts(url) {
@@ -60,10 +60,9 @@ export async function filterUserPosts(url) {
         const author = post.author.name.toLowerCase();
         const profileName = name.toLowerCase();
         
-        return author.includes(profileName)
+        return author.includes(profileName);
     });
     
     const postsContainer = document.querySelector('.profilePosts');
-    console.log(postsContainer);
     filteredPosts.forEach((post) => {postTemplate(postsContainer, post)});
-}
+};

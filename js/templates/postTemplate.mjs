@@ -28,4 +28,4 @@ export function postTemplate(container, content) {
     </div>
     <hr>
         `
-}
+};
