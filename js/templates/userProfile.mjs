@@ -19,7 +19,7 @@ export function profileTemplate(container, values) {
     return container.innerHTML = 
     `
     <div class="bannerAndAvatar">
-        <img class="rounded img-fluid" style="overflow: hidden; width: 60%;" src="${banner}" alt="profile banner">
+        <img class="rounded img-fluid banner" style="overflow: hidden; width: 60%;" src="${banner}" alt="profile banner">
         <img class="img-fluid avatar" src="${avatar}" alt="avatar">
     </div>
     <div class="col-6">

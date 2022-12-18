@@ -37,10 +37,13 @@ export async function filteredPosts (url, term) {
 
     const postContainer = document.querySelector('.postContainer');
     postContainer.innerHTML = "";
-
-    filtered.forEach((post) => {
-        postTemplate(postContainer, post);
-    });
+    if (filtered.length <= 1) {
+        postContainer.innerHTML = `<p class='display-6 text-light'>Nothing match your search..</p>`;
+    } else {
+        filtered.forEach((post) => {
+            postTemplate(postContainer, post);
+        });
+    }
 };
 
 

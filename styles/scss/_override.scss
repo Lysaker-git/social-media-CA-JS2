@@ -1,0 +1,66 @@
+// Font
+@font-face {
+    font-family: 'Nabla';
+    src: url(../../assets/fonts/Nabla.ttf);
+}
+.header-title {
+    font-family: 'Nabla', cursive;
+}
+
+.custom-container {
+    place-content: center;
+}
+body {
+    background-image: url(/assets/BG-GENERIC.svg)
+}
+.profileContainer {
+    margin-top: 15vh;
+    place-content: center;
+
+}
+
+
+
+.navbar-nav {
+    width: fit-content;
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+}
+.active {
+    position: relative;
+}
+.active::after {
+    content:'';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 3px;
+    bottom: 0;
+    background-color: #041163;
+}
+
+.bannerAndAvatar {
+    position: relative;
+}
+.avatar {
+    position: absolute;
+    left: 2rem ;
+    max-height: 8rem;
+    top: .5rem;
+    // transform: rotate(90deg);
+    // clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+.banner {
+    min-width: 100%;
+    overflow: hidden;
+    max-height: 10rem;
+}
+.text-light {
+    --bs-text-opacity: .8;
+}
+
+.searchContainer {
+    margin-top: 5rem;
+    
+}

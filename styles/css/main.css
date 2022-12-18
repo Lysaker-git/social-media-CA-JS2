@@ -10817,9 +10817,15 @@ body {
 
 .avatar {
   position: absolute;
-  left: 1rem;
-  height: 80%;
+  left: 2rem;
+  max-height: 8rem;
   top: 0.5rem;
+}
+
+.banner {
+  min-width: 100%;
+  overflow: hidden;
+  max-height: 10rem;
 }
 
 .text-light {

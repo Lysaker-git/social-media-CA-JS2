@@ -1,5 +1,9 @@
 import * as listeners from "./listeners/index.mjs";
 
+/* 
+RUNNING ON EVERY PAGE - AND RELEASES THE CORRECT LISTENERS
+*/
+
 export const whatPage = location.pathname;
 
 export function returnLoc(page) {
