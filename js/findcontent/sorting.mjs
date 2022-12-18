@@ -5,7 +5,6 @@ import { postTemplate } from "../templates/postTemplate.mjs";
 export async function sortPosts (option) {
     const url = POSTS_CREATE_URL;
     const response = await fetch(`${url}?sort=created&sortOrder=desc&_author=true`, headerWithAuth('GET'));
-    // console.log(headerWithAuth('GET'))
     const json = await response.json();
     let sorted = '';
     switch(option) {
@@ -59,4 +58,4 @@ export async function sortPosts (option) {
     sorted.forEach((content) => {
         postTemplate(container, content);
     });
-}
+};
