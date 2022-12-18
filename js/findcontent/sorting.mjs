@@ -52,26 +52,11 @@ export async function sortPosts (option) {
             });
             break;
 
-    }
+    };
     console.log(sorted)
     const container = document.querySelector('.postContainer');
     container.innerHTML = '';
     sorted.forEach((content) => {
         postTemplate(container, content);
     });
-    // SORTED BASED ON TITLE ASCENDING
-    // const sorted = json.sort(function(a, b) {
-    //     if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
-    //     if (a.title.toLowerCase() > b.title.toLowerCase()) return 1;
-    //     return 0;
-    // });
-    // console.log(sorted); 
-    // SORTED DESCENDING
-    // const sortedTwo = json.sort(function(a, b) {
-    //     if (a.title.toLowerCase() < b.title.toLowerCase()) return 1;
-    //     if (a.title.toLowerCase() > b.title.toLowerCase()) return -1;
-    //     return 0;
-    // });
-    // console.log(sortedTwo); 
-    
 }
