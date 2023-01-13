@@ -6,9 +6,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blocker | Posts</title>
     <link rel="stylesheet" href="styles/css/main.css">
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="/js/main.mjs" type="module" defer></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </head>
 <body>
-    
+    <nav class="navbar fixed-top navbar-expand-lg">
+        <div class="container">
+          <a class="header-title navbar-brand" href="index.html">Blockster</a>
+          <div class="
+                  bg-primary
+                  bg-gradient
+                  rounded
+                  bg-opacity-25"
+                id="navbarNav">
+            <ul class="navbar-nav rounded">
+              <li class="nav-item m-2">
+                <a class="nav-link "  href="profile.html">Profile</a>
+              </li>
+              <li class="nav-item m-2">
+                <a class="nav-link active" aria-current="page" href="posts.html">Posts</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="container w-100 d-flex flex-column searchContainer">
+        <div class="row rounded p-2 shadow bg-primary bg-gradient bg-opacity-25">
+            <form action="" id="searchBar" class="form p-3">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="searchContent" placeholder="search">
+                  <label for="searchContent" class="form-label">Search:</label>
+                </div>
+                <div class="checkboxes d-flex">
+                  <label class="text-light ms-auto" for="titleAndBody">Content</label>
+                  <input class="m-2" checked type="checkbox" name="titleAndBody" id="checkboxContent">
+                  <label class="text-light ms-3" for="author">Author</label>
+                  <input class="m-2" checked type="checkbox" name="author" id="checkboxAuthor">
+                  <label class="text-light ms-3" for="id">ID</label>
+                  <input class="m-2" checked type="checkbox" name="id" id="checkboxID">
+                </div>
+            </form>
+        </div>
+        <button type="button" class=" border-0 ms-auto btn btn-primary my-3 bg-primary bg-gradient bg-opacity-50" data-bs-toggle="modal" data-bs-target="#postModal">
+            Create Post
+          </button>
+        
+          <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="postModalLabel">Create Post:</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                    <form action="" method="POST" id="createPostForm" class="form modal-body">
+                        <div class="mb-3">
+                            <label for="formTitle" class="form-label">Title:</label>
+                            <input type="text" class="form-control" id="formTitle" placeholder="">
+                          </div>
+                          <div class="mb-3">
+                            <label for="formBody" class="form-label">Your Message:</label>
+                            <textarea class="form-control" id="formBody" rows="3"></textarea>
+                          </div>
+                          <div class="">
+                            <button type="submit" class="btn btn-primary mb-3">Submit</button>
+                          </div>
+                    </form>
+              </div>
+            </div>
+          </div>          
+      </div>
+    <main class="container wrapper" style="margin-top: 5h;">
+      <div class="sortOptions mt-3">
+        <select name="sortOrder" id="sortOrder" class="form-select" aria-label="Select Sort">
+          <option selected>Select Sort</option>
+          <option value="t-Asc">Title - Ascending</option>
+          <option value="t-Desc">Title - Descending</option>
+          <option value="d-Asc">Date - Ascending</option>
+          <option value="d-Desc">Date - Descending</option>
+          <option value="id-Asc">ID - Ascending</option>
+          <option value="id-Desc">ID - Descending</option>
+        </select>
+      </div>
+        <div class="postContainer row rounded p-4 shadow bg-primary bg-gradient bg-opacity-25 mt-2">
+            
+        </div>
+    </main>
+    <footer class="row" style="height: 50px"></footer>
 </body>
 </html>

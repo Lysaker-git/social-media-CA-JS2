@@ -1,33 +1,39 @@
-const userLogin = {
-    email: '',
-    password: '',
-  };
-  
-  async function loginUser(url, data) {
+import { headerWithBodyNoAuth } from "../api/index.mjs";
+
+/**
+ * function to log in user into application with URL and user data.
+ * @param {string} url URL for logging in user through API.
+ * @param {object} user user object that gets passed to the headerWithBodyNoAuth('POST', user) function.
+ * @link if user is logged in will navigate to profile page. 
+ */
+export async function loginUser(url, user) {
     try {
-      const postData = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      };
-      const response = await fetch(url, postData);
-      console.log(response);
-      const json = await response.json();
-      const accessToken = json.accessToken;
-      localStorage.setItem('accessToken', accessToken);
-      console.log(json);
-      // Logs:
-      // accessToken: "eyJhbGciOiJIuzI1NiIsInR...
-      // avatar: ""
-      // email: "test-account-a@noroff.no
-      // name: "test_account_a"
-      return json;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  
-//   loginUser(`${API_BASE_URL}/api/v1/social/auth/login`, user);
-  
+        const alertBox = document.querySelector('.alert-box');
+        if (user.name) {
+            delete user.name;
+        }
+        const response = await fetch(url, headerWithBodyNoAuth('POST', user));
+        const json = await response.json();
+
+        const accesstoken = json.accessToken;
+        const name = json.name;
+
+        localStorage.setItem('accesstoken', accesstoken);
+        localStorage.setItem('name', name);
+
+        if (accesstoken) {
+            location.assign('/profile.html');
+        } else {
+            const { errors } = json;
+            errors.forEach((error) => {
+                alertBox.innerHTML += `
+                <p class="mt-2 p-2 alert alert-warning">${error.message}</p>
+                `
+                // console.log(error.message);
+            });
+        };
+
+    } catch (e) {
+        // console.log(e);
+    };
+};
